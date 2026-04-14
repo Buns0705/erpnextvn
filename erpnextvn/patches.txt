@@ -1,0 +1,2 @@
+# Patches for erpnextvn go here, one per line.
+# Example: erpnextvn.patches.v0_1.migrate_something
