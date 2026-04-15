@@ -4,7 +4,9 @@ Creates Sales/Purchase tax templates for the standard Vietnamese VAT rates:
 0% (export), 5% (essentials), 8% (reduced per NQ), 10% (standard).
 
 Also provides the ``get_round_off_accounts`` regional override which maps
-to account 6428 (Other miscellaneous expenses) per TT200.
+to account 6428 (Other miscellaneous expenses). The account numbers
+``33311``, ``1331``, and ``6428`` are shared by TT200 and TT99/2025, so
+this module works for both chart-of-accounts variants.
 """
 
 from __future__ import annotations

@@ -13,7 +13,7 @@
 
 `erpnextvn` is a comprehensive Vietnamese localization pack for ERPNext v16 / Frappe v16. It ships:
 
-- **Chart of Accounts** — TT200/2014/TT-BTC (full) and TT133/2016/TT-BTC (SME)
+- **Chart of Accounts** — **TT99/2025/TT-BTC (new, effective 01/01/2026)**, TT200/2014/TT-BTC (legacy), and TT133/2016/TT-BTC (SME)
 - **VAT templates** — 0% / 5% / 8% / 10% Sales & Purchase
 - **Payroll** — Personal Income Tax (7-bracket progressive), BHXH / BHYT / BHTN
 - **E-Invoicing** — Viettel S-Invoice, VNPT, MISA meInvoice, FPT, BKAV
@@ -26,7 +26,7 @@
 
 `erpnextvn` là bộ bản địa hóa đầy đủ cho ERPNext v16 / Frappe v16 theo chuẩn Việt Nam:
 
-- **Hệ thống tài khoản** — Đầy đủ theo Thông tư 200 và 133
+- **Hệ thống tài khoản** — **TT99/2025/TT-BTC (mới nhất, hiệu lực 01/01/2026)**, Thông tư 200 (cũ), và Thông tư 133 (SME)
 - **Mẫu thuế GTGT** — 0% / 5% / 8% / 10% cho hóa đơn bán/mua
 - **Tiền lương** — Thuế TNCN bậc thang 7 bậc, BHXH / BHYT / BHTN
 - **Hóa đơn điện tử** — Tích hợp 5 nhà cung cấp lớn (Viettel, VNPT, MISA, FPT, BKAV)
@@ -36,6 +36,31 @@
 - **63 tỉnh/thành** — Kèm vùng lương tối thiểu (I–IV)
 
 ---
+
+## 📋 Chart of Accounts — TT99/2025 (mới nhất)
+
+Thông tư 99/2025/TT-BTC ban hành 27/10/2025, hiệu lực **01/01/2026**, thay thế Thông tư 200/2014/TT-BTC. App mặc định load TT99 cho công ty mới.
+
+### Thay đổi chính so với TT200
+
+**Tài khoản đổi tên:**
+- `112` Tiền gửi Ngân hàng → **Tiền gửi không kỳ hạn**
+- `155` Thành phẩm → **Sản phẩm**
+- `242` Chi phí trả trước → **Chi phí trả sau**
+- `4112` Thặng dư vốn cổ phần → **Thặng dư vốn**
+
+**Tài khoản bỏ:** 161 (Chi sự nghiệp), 441 (Vốn đầu tư XDCB), 461 (Nguồn KP sự nghiệp), 466 (KP hình thành TSCĐ), 611 (Mua hàng), 623 (CP máy thi công), 631 (Giá thành SX), 212/217 gộp vào 211, 337/343/347/356 bỏ.
+
+**Tài khoản mới thêm:**
+- `215` — **Tài sản sinh học** (biological assets) với 2151/2152/2153
+- `332` — **Phải trả cổ tức, lợi nhuận**
+- `6275` — Thuế, phí, lệ phí (con của 627)
+- `6415` — Chi phí bảo hành (con của 641)
+- `82112` — **Chi phí thuế TNDN bổ sung theo thuế tối thiểu toàn cầu (Pillar Two)**
+
+**Báo cáo tài chính:** "Bảng cân đối kế toán" → **"Báo cáo tình hình tài chính"**
+
+**Linh hoạt:** TT99 cho phép doanh nghiệp tự bổ sung/sửa tài khoản mà **không cần xin Bộ Tài chính** (quy định cũ TT200).
 
 ## 📦 Installation
 

@@ -63,6 +63,17 @@ python -m pytest erpnextvn/payroll/ -v
 bench --site [test-site] run-tests --app erpnextvn
 ```
 
+## 📋 Cập nhật chuẩn kế toán
+
+Khi có thông tư mới của Bộ Tài chính về chế độ kế toán, quy trình cập nhật:
+
+1. Tạo file JSON mới ở `erpnextvn/accounting/chart_of_accounts/vn_ttXX.json`
+2. Đăng ký vào `COA_FILES` trong `erpnextvn/accounting/__init__.py`
+3. Thêm option vào Select `vn_chart_of_accounts_type` trong `setup.py`
+4. Cập nhật `DEFAULT_COA` nếu cần
+5. Viết patch migrate trong `erpnextvn/patches/` nếu cần chuyển đổi
+6. Cập nhật README với bảng so sánh các thay đổi
+
 ## 📬 Pull Request
 
 1. Đảm bảo tests pass
