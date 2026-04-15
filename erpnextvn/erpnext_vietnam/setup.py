@@ -118,15 +118,15 @@ def load_provinces() -> None:
         provinces = json.load(f)
 
     for p in provinces:
-        if frappe.db.exists("VN Province", p["name"]):
+        if frappe.db.exists("VN Province", p["province_name"]):
             continue
         frappe.get_doc(
             {
                 "doctype": "VN Province",
-                "province_name": p["name"],
-                "province_code": p["code"],
+                "province_name": p["province_name"],
+                "province_code": p["province_code"],
                 "wage_region": p["wage_region"],
-                "tax_authority_code": p.get("tax_code", ""),
+                "tax_authority_code": p.get("tax_authority_code", ""),
             }
         ).insert(ignore_permissions=True)
 
