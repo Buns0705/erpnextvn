@@ -1,0 +1,61 @@
+{
+    "actions": [],
+    "autoname": "naming_series:",
+    "creation": "2025-01-01 00:00:00",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "sales_invoice",
+        "provider",
+        "status",
+        "column_break_meta",
+        "invoice_number",
+        "invoice_date",
+        "lookup_code",
+        "transaction_id",
+        "tax_authority_code",
+        "section_invoice_info",
+        "section_technical",
+        "xml_data",
+        "signed_xml",
+        "error_message",
+        "pdf_file"
+    ],
+    "fields": [
+        {"fieldname": "naming_series", "fieldtype": "Select", "label": "Số seri", "options": "VN-EINV-.####", "default": "VN-EINV-.####"},
+        {"fieldname": "sales_invoice", "fieldtype": "Link", "label": "Hóa đơn bán hàng", "options": "Sales Invoice", "reqd": 1, "in_list_view": 1},
+        {"fieldname": "provider", "fieldtype": "Data", "label": "Nhà cung cấp", "read_only": 1, "in_list_view": 1},
+        {"fieldname": "status", "fieldtype": "Select", "label": "Trạng thái",
+         "options": "Draft\nSigned\nSent\nAccepted\nRejected\nCancelled\nReplaced\nPending",
+         "default": "Draft", "in_list_view": 1},
+        {"fieldname": "column_break_meta", "fieldtype": "Column Break"},
+
+        {"fieldname": "section_invoice_info", "fieldtype": "Section Break", "label": "Thông tin hóa đơn"},
+        {"fieldname": "invoice_number", "fieldtype": "Data", "label": "Số hóa đơn", "read_only": 1, "in_list_view": 1},
+        {"fieldname": "invoice_date", "fieldtype": "Date", "label": "Ngày hóa đơn", "read_only": 1},
+        {"fieldname": "lookup_code", "fieldtype": "Data", "label": "Mã tra cứu", "read_only": 1},
+        {"fieldname": "transaction_id", "fieldtype": "Data", "label": "Mã giao dịch", "read_only": 1},
+        {"fieldname": "tax_authority_code", "fieldtype": "Data", "label": "Mã cơ quan thuế", "read_only": 1},
+
+        {"fieldname": "section_technical", "fieldtype": "Section Break", "label": "Dữ liệu kỹ thuật", "collapsible": 1},
+        {"fieldname": "xml_data", "fieldtype": "Long Text", "label": "XML Data", "read_only": 1},
+        {"fieldname": "signed_xml", "fieldtype": "Long Text", "label": "Signed XML", "read_only": 1},
+        {"fieldname": "error_message", "fieldtype": "Long Text", "label": "Thông báo lỗi", "read_only": 1},
+        {"fieldname": "pdf_file", "fieldtype": "Attach", "label": "File PDF", "read_only": 1}
+    ],
+    "links": [],
+    "modified": "2025-01-01 00:00:00",
+    "modified_by": "Administrator",
+    "module": "ERPNext Vietnam",
+    "name": "VN E Invoice Log",
+    "owner": "Administrator",
+    "permissions": [
+        {"create": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "read": 1, "report": 1, "role": "System Manager", "share": 1, "write": 1},
+        {"read": 1, "role": "Accounts User"},
+        {"read": 1, "role": "Accounts Manager"}
+    ],
+    "sort_field": "creation",
+    "sort_order": "DESC",
+    "track_changes": 1
+}

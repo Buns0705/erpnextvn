@@ -1,0 +1,67 @@
+{
+    "actions": [],
+    "creation": "2025-01-01 00:00:00",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "provider",
+        "section_api",
+        "api_url",
+        "sandbox_mode",
+        "section_auth",
+        "api_username",
+        "api_password",
+        "column_break_auth",
+        "api_key",
+        "api_secret",
+        "section_cert",
+        "certificate_file",
+        "certificate_password",
+        "section_invoice_cfg",
+        "template_code",
+        "series_symbol",
+        "tax_authority_code",
+        "section_auto",
+        "auto_send_on_submit"
+    ],
+    "fields": [
+        {"fieldname": "provider", "fieldtype": "Select", "label": "Nhà cung cấp", "options": "\nViettel\nVNPT\nMISA\nFPT\nBKAV", "reqd": 1},
+
+        {"fieldname": "section_api", "fieldtype": "Section Break", "label": "Kết nối API"},
+        {"fieldname": "api_url", "fieldtype": "Data", "label": "API URL"},
+        {"fieldname": "sandbox_mode", "fieldtype": "Check", "label": "Chế độ thử nghiệm (Sandbox)", "default": "1"},
+
+        {"fieldname": "section_auth", "fieldtype": "Section Break", "label": "Xác thực"},
+        {"fieldname": "api_username", "fieldtype": "Data", "label": "Tên đăng nhập"},
+        {"fieldname": "api_password", "fieldtype": "Password", "label": "Mật khẩu"},
+        {"fieldname": "column_break_auth", "fieldtype": "Column Break"},
+        {"fieldname": "api_key", "fieldtype": "Data", "label": "API Key"},
+        {"fieldname": "api_secret", "fieldtype": "Password", "label": "API Secret"},
+
+        {"fieldname": "section_cert", "fieldtype": "Section Break", "label": "Chứng thư số"},
+        {"fieldname": "certificate_file", "fieldtype": "Attach", "label": "File chứng thư số (.pfx/.p12)"},
+        {"fieldname": "certificate_password", "fieldtype": "Password", "label": "Mật khẩu chứng thư"},
+
+        {"fieldname": "section_invoice_cfg", "fieldtype": "Section Break", "label": "Cấu hình hóa đơn"},
+        {"fieldname": "template_code", "fieldtype": "Data", "label": "Mã mẫu hóa đơn"},
+        {"fieldname": "series_symbol", "fieldtype": "Data", "label": "Ký hiệu hóa đơn"},
+        {"fieldname": "tax_authority_code", "fieldtype": "Data", "label": "Mã cơ quan thuế"},
+
+        {"fieldname": "section_auto", "fieldtype": "Section Break", "label": "Tự động"},
+        {"fieldname": "auto_send_on_submit", "fieldtype": "Check", "label": "Tự động phát hành khi xác nhận hóa đơn"}
+    ],
+    "issingle": 1,
+    "links": [],
+    "modified": "2025-01-01 00:00:00",
+    "modified_by": "Administrator",
+    "module": "ERPNext Vietnam",
+    "name": "VN E Invoice Settings",
+    "owner": "Administrator",
+    "permissions": [
+        {"create": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "read": 1, "report": 1, "role": "System Manager", "share": 1, "write": 1},
+        {"read": 1, "role": "Accounts Manager"}
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+}
