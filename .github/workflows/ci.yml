@@ -1,0 +1,70 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install ruff
+        run: pip install ruff
+      - name: Ruff check
+        run: ruff check erpnextvn/ || true
+      - name: Ruff format check
+        run: ruff format --check erpnextvn/ || true
+
+  test:
+    name: Test pure-Python utilities
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install pytest
+        run: pip install pytest
+      - name: Run pytest
+        run: python -m pytest tests/ -v --tb=short
+
+  validate-json:
+    name: Validate JSON fixtures
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate all JSON files
+        run: |
+          python - <<'EOF'
+          import json, glob, sys
+          failed = False
+          for f in sorted(glob.glob("erpnextvn/**/*.json", recursive=True)):
+              try:
+                  json.load(open(f))
+              except Exception as exc:
+                  print(f"FAIL: {f}: {exc}")
+                  failed = True
+          sys.exit(1 if failed else 0)
+          EOF
+
+  py-compile:
+    name: Python syntax check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: py_compile
+        run: |
+          python -m compileall -q erpnextvn/
