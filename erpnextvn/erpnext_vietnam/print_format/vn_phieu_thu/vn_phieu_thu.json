@@ -1,0 +1,15 @@
+{
+ "creation": "2025-01-01 00:00:00",
+ "custom_format": 1,
+ "doc_type": "Payment Entry",
+ "docstatus": 0,
+ "doctype": "Print Format",
+ "html": "<div class=\"vn-print\">\n  {%- set company_doc = frappe.get_doc('Company', doc.company) -%}\n  <div class=\"company-header\">\n    <div class=\"company-name\">{{ company_doc.company_name }}</div>\n    <div>MST: {{ company_doc.tax_id or '' }}</div>\n  </div>\n  <div class=\"doc-title\">Phiếu thu</div>\n  <div class=\"doc-subtitle\">(Mẫu số 01-TT ban hành theo Thông tư 200/2014/TT-BTC)</div>\n  <div class=\"doc-info\">Ngày {{ doc.posting_date.strftime('%d') }} tháng {{ doc.posting_date.strftime('%m') }} năm {{ doc.posting_date.strftime('%Y') }}</div>\n  <div class=\"doc-meta\">\n    <div><span class=\"label\">Quyển số:</span> .............. <span class=\"label\" style=\"margin-left:30px\">Số:</span> {{ doc.name }}</div>\n    <div><span class=\"label\">Nợ:</span> {{ doc.paid_to or '' }}</div>\n    <div><span class=\"label\">Có:</span> {{ doc.paid_from or '' }}</div>\n    <div><span class=\"label\">Họ, tên người nộp tiền:</span> {{ doc.party_name or '' }}</div>\n    <div><span class=\"label\">Địa chỉ:</span> ..................................................................</div>\n    <div><span class=\"label\">Lý do nộp:</span> {{ doc.remarks or 'Thanh toán' }}</div>\n    <div><span class=\"label\">Số tiền:</span> {{ format_vnd(doc.paid_amount) }}</div>\n    <div><span class=\"label\">Viết bằng chữ:</span> <em>{{ so_tien_bang_chu(doc.paid_amount) }}</em></div>\n    <div><span class=\"label\">Kèm theo:</span> ......... chứng từ gốc</div>\n  </div>\n  <div class=\"signatures\">\n    <div class=\"sig-block\"><div class=\"sig-title\">Giám đốc</div><div class=\"sig-note\">(Ký, họ tên, đóng dấu)</div></div>\n    <div class=\"sig-block\"><div class=\"sig-title\">Kế toán trưởng</div><div class=\"sig-note\">(Ký, họ tên)</div></div>\n    <div class=\"sig-block\"><div class=\"sig-title\">Người nộp tiền</div><div class=\"sig-note\">(Ký, họ tên)</div></div>\n    <div class=\"sig-block\"><div class=\"sig-title\">Người lập phiếu</div><div class=\"sig-note\">(Ký, họ tên)</div></div>\n    <div class=\"sig-block\"><div class=\"sig-title\">Thủ quỹ</div><div class=\"sig-note\">(Ký, họ tên)</div></div>\n  </div>\n  <p>Đã nhận đủ số tiền (viết bằng chữ): <em>{{ so_tien_bang_chu(doc.paid_amount) }}</em></p>\n</div>",
+ "modified": "2025-01-01 00:00:00",
+ "modified_by": "Administrator",
+ "module": "ERPNext Vietnam",
+ "name": "VN Phiếu Thu",
+ "owner": "Administrator",
+ "print_format_type": "Jinja",
+ "standard": "Yes"
+}

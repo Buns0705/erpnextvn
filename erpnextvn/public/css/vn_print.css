@@ -1,0 +1,122 @@
+/* Shared print-format styles for Vietnamese documents.
+ * Use class prefix `.vn-` to avoid clashing with Bootstrap/ERPNext defaults.
+ */
+
+.vn-print {
+    font-family: "Times New Roman", serif;
+    font-size: 13px;
+    color: #000;
+    line-height: 1.4;
+}
+
+.vn-print .company-name {
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.vn-print .doc-title {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 15px 0 5px 0;
+}
+
+.vn-print .doc-subtitle {
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.vn-print .doc-info {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.vn-print .doc-meta {
+    margin: 10px 0;
+}
+
+.vn-print .doc-meta .label {
+    font-weight: bold;
+}
+
+.vn-print table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+
+.vn-print table.bordered th,
+.vn-print table.bordered td {
+    border: 1px solid #000;
+    padding: 4px 8px;
+}
+
+.vn-print table.bordered th {
+    background: #f0f0f0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.vn-print .amount,
+.vn-print .numeric {
+    text-align: right;
+}
+
+.vn-print .center {
+    text-align: center;
+}
+
+.vn-print .total-row {
+    font-weight: bold;
+}
+
+.vn-print .amount-in-words {
+    font-style: italic;
+    margin: 10px 0;
+}
+
+.vn-print .signatures {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.vn-print .signatures .sig-block {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.vn-print .signatures .sig-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.vn-print .signatures .sig-note {
+    font-style: italic;
+    font-size: 11px;
+    margin-bottom: 70px;
+}
+
+.vn-print .company-header {
+    margin-bottom: 10px;
+}
+
+.vn-print .company-header .tax-id {
+    font-size: 12px;
+}
+
+.vn-print .page-break {
+    page-break-after: always;
+}
+
+.vn-print hr {
+    border: 0;
+    border-top: 1px solid #000;
+    margin: 15px 0;
+}

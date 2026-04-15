@@ -1,0 +1,16 @@
+{
+ "creation": "2025-01-01 00:00:00",
+ "custom_format": 1,
+ "disabled": 0,
+ "doc_type": "Delivery Note",
+ "docstatus": 0,
+ "doctype": "Print Format",
+ "html": "<div class=\"vn-print\">\n  {%- set company_doc = frappe.get_doc('Company', doc.company) -%}\n  <div class=\"company-header\">\n    <div class=\"company-name\">{{ company_doc.company_name }}</div>\n    <div>MST: {{ company_doc.tax_id or '' }}</div>\n  </div>\n  <div class=\"doc-title\">Phiếu xuất kho</div>\n  <div class=\"doc-subtitle\">(Mẫu số 02-VT ban hành theo Thông tư 200/2014/TT-BTC)</div>\n  <div class=\"doc-info\">Ngày {{ doc.posting_date.strftime('%d') }} tháng {{ doc.posting_date.strftime('%m') }} năm {{ doc.posting_date.strftime('%Y') }}</div>\n  <div class=\"doc-meta\">\n    <div><span class=\"label\">Số:</span> {{ doc.name }}</div>\n    <div><span class=\"label\">Họ và tên người nhận hàng:</span> {{ doc.customer_name }}</div>\n    <div><span class=\"label\">Địa chỉ:</span> {{ doc.address_display or '' }}</div>\n    <div><span class=\"label\">Lý do xuất kho:</span> Xuất bán</div>\n    <div><span class=\"label\">Xuất tại kho:</span> {{ doc.set_warehouse or '' }}</div>\n  </div>\n  <table class=\"bordered\">\n    <thead>\n      <tr>\n        <th style=\"width:5%\">STT</th>\n        <th style=\"width:40%\">Tên hàng hóa</th>\n        <th style=\"width:15%\">Mã số</th>\n        <th style=\"width:10%\">ĐVT</th>\n        <th style=\"width:15%\">Số lượng theo CT</th>\n        <th style=\"width:15%\">Số lượng thực xuất</th>\n      </tr>\n    </thead>\n    <tbody>\n      {% for row in doc.items %}\n      <tr>\n        <td class=\"center\">{{ loop.index }}</td>\n        <td>{{ row.item_name }}</td>\n        <td class=\"center\">{{ row.item_code }}</td>\n        <td class=\"center\">{{ row.uom }}</td>\n        <td class=\"numeric\">{{ \"{:,.0f}\".format(row.qty).replace(',', '.') }}</td>\n        <td class=\"numeric\">{{ \"{:,.0f}\".format(row.qty).replace(',', '.') }}</td>\n      </tr>\n      {% endfor %}\n    </tbody>\n  </table>\n  <div><span class=\"label\">Tổng số tiền (viết bằng chữ):</span> <em>{{ so_tien_bang_chu(doc.grand_total or 0) }}</em></div>\n  <div class=\"signatures\">\n    <div class=\"sig-block\"><div class=\"sig-title\">Người lập phiếu</div><div class=\"sig-note\">(Ký, họ tên)</div></div>\n    <div class=\"sig-block\"><div class=\"sig-title\">Người nhận hàng</div><div class=\"sig-note\">(Ký, họ tên)</div></div>\n    <div class=\"sig-block\"><div class=\"sig-title\">Thủ kho</div><div class=\"sig-note\">(Ký, họ tên)</div></div>\n    <div class=\"sig-block\"><div class=\"sig-title\">Kế toán trưởng</div><div class=\"sig-note\">(Ký, họ tên)</div></div>\n    <div class=\"sig-block\"><div class=\"sig-title\">Giám đốc</div><div class=\"sig-note\">(Ký, đóng dấu)</div></div>\n  </div>\n</div>",
+ "modified": "2025-01-01 00:00:00",
+ "modified_by": "Administrator",
+ "module": "ERPNext Vietnam",
+ "name": "VN Phiếu Xuất Kho",
+ "owner": "Administrator",
+ "print_format_type": "Jinja",
+ "standard": "Yes"
+}
