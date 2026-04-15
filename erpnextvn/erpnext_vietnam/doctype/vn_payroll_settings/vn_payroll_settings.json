@@ -33,8 +33,8 @@
     "fields": [
         {"fieldname": "section_base", "fieldtype": "Section Break", "label": "Lương cơ sở & Giảm trừ"},
         {"fieldname": "base_salary", "fieldtype": "Currency", "label": "Lương cơ sở", "default": "2340000", "description": "Lương cơ sở theo NĐ hiện hành (dùng tính trần BH)"},
-        {"fieldname": "personal_deduction", "fieldtype": "Currency", "label": "Giảm trừ bản thân", "default": "11000000"},
-        {"fieldname": "dependent_deduction", "fieldtype": "Currency", "label": "Giảm trừ người phụ thuộc", "default": "4400000"},
+        {"fieldname": "personal_deduction", "fieldtype": "Currency", "label": "Giảm trừ bản thân", "default": "15500000", "description": "Theo NQ 110/2025/UBTVQH15 — áp dụng từ kỳ tính thuế 2026 (15,5 triệu/tháng = 186 triệu/năm)"},
+        {"fieldname": "dependent_deduction", "fieldtype": "Currency", "label": "Giảm trừ người phụ thuộc", "default": "6200000", "description": "Theo NQ 110/2025/UBTVQH15 — áp dụng từ kỳ tính thuế 2026 (6,2 triệu/tháng/NPT)"},
         {"fieldname": "meal_allowance_exempt", "fieldtype": "Currency", "label": "Mức miễn thuế phụ cấp ăn", "default": "730000"},
 
         {"fieldname": "section_employee_rates", "fieldtype": "Section Break", "label": "BHXH - Người lao động"},

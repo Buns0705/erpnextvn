@@ -70,10 +70,12 @@ def calculate_pit(
         num_dependents: Number of registered dependents.
         personal_deduction: Override personal deduction.
             When ``None``, pulls ``VN Payroll Settings.personal_deduction``
-            (default 11,000,000 VND).
+            (default 15,500,000 VND per Resolution 110/2025/UBTVQH15,
+            effective from tax year 2026).
         dependent_deduction: Override dependent deduction.
             When ``None``, pulls ``VN Payroll Settings.dependent_deduction``
-            (default 4,400,000 VND).
+            (default 6,200,000 VND per Resolution 110/2025/UBTVQH15,
+            effective from tax year 2026).
         other_deductions: Any additional tax-deductible amounts.
 
     Returns:
@@ -124,8 +126,10 @@ def _resolve_deductions(
     Frappe itself is unavailable (e.g. when running unit tests outside a
     bench).
     """
-    default_personal = 11_000_000.0
-    default_dependent = 4_400_000.0
+    # Statutory defaults per Resolution 110/2025/UBTVQH15 (effective 01/01/2026,
+    # applies from tax year 2026).
+    default_personal = 15_500_000.0
+    default_dependent = 6_200_000.0
 
     try:
         import frappe

@@ -67,3 +67,18 @@ class TestCalculatePit:
         rates = [b[1] for b in TAX_BRACKETS]
         assert limits == sorted(limits)
         assert rates == sorted(rates)
+
+    def test_statutory_defaults_per_nq110(self):
+        """Defaults should follow Resolution 110/2025/UBTVQH15 when Frappe is unavailable."""
+        from erpnextvn.payroll.pit_calculator import _resolve_deductions
+
+        personal, dependent = _resolve_deductions(None, None)
+        assert personal == 15_500_000.0
+        assert dependent == 6_200_000.0
+
+    def test_nq110_lifts_zero_threshold(self):
+        # Under NQ 110 defaults, gross 15M with 0 deps yields no tax
+        # (taxable = 15M − 15.5M = negative → 0).
+        r = calculate_pit(15_000_000, 0, 0)  # No overrides, uses defaults
+        assert r.tax_amount == 0
+        assert r.taxable_income == 0

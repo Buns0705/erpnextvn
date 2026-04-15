@@ -15,7 +15,7 @@
 
 - **Chart of Accounts** — **TT99/2025/TT-BTC (new, effective 01/01/2026)**, TT200/2014/TT-BTC (legacy), and TT133/2016/TT-BTC (SME)
 - **VAT templates** — 0% / 5% / 8% / 10% Sales & Purchase
-- **Payroll** — Personal Income Tax (7-bracket progressive), BHXH / BHYT / BHTN
+- **Payroll** — Personal Income Tax (7-bracket progressive, new deductions per Nghị quyết 110/2025/UBTVQH15 effective 2026), BHXH / BHYT / BHTN
 - **E-Invoicing** — Viettel S-Invoice, VNPT, MISA meInvoice, FPT, BKAV
 - **Print Formats** — 8 standard Vietnamese forms (Hóa đơn, Phiếu thu/chi/xuất/nhập, Báo giá, PO, Phiếu lương)
 - **Reports** — Bảng lương tháng, Báo cáo TNCN, Bảng kê hóa đơn, Sổ cái, Cân đối phát sinh
@@ -28,7 +28,7 @@
 
 - **Hệ thống tài khoản** — **TT99/2025/TT-BTC (mới nhất, hiệu lực 01/01/2026)**, Thông tư 200 (cũ), và Thông tư 133 (SME)
 - **Mẫu thuế GTGT** — 0% / 5% / 8% / 10% cho hóa đơn bán/mua
-- **Tiền lương** — Thuế TNCN bậc thang 7 bậc, BHXH / BHYT / BHTN
+- **Tiền lương** — Thuế TNCN bậc thang 7 bậc (giảm trừ mới theo NQ 110/2025/UBTVQH15 áp dụng từ 2026), BHXH / BHYT / BHTN
 - **Hóa đơn điện tử** — Tích hợp 5 nhà cung cấp lớn (Viettel, VNPT, MISA, FPT, BKAV)
 - **Mẫu in** — 8 mẫu chuẩn Việt Nam
 - **Báo cáo** — 5 báo cáo theo chuẩn kế toán VN
@@ -86,8 +86,8 @@ After installation:
 1. Go to `VN Payroll Settings` (Single DocType).
 2. Verify statutory defaults:
    - Lương cơ sở: 2,340,000 VND
-   - Giảm trừ bản thân: 11,000,000 VND
-   - Giảm trừ người phụ thuộc: 4,400,000 VND
+   - **Giảm trừ bản thân: 15,500,000 VND** (theo NQ 110/2025/UBTVQH15, áp dụng từ 2026)
+   - **Giảm trừ người phụ thuộc: 6,200,000 VND** (theo NQ 110/2025/UBTVQH15, áp dụng từ 2026)
    - Tỷ lệ BHXH / BHYT / BHTN (NLĐ 8% / 1.5% / 1%, DN 17.5% / 3% / 1%)
    - Vùng lương: Vùng I 4,960,000 / Vùng II 4,410,000 / ...
 3. Khi tạo Salary Slip, các trường VN (BHXH, Thuế TNCN, Thu nhập tính thuế) sẽ được tự động tính.
