@@ -1,0 +1,16 @@
+[
+    {"name": "Lương cơ bản", "salary_component": "Lương cơ bản", "type": "Earning", "salary_component_abbr": "LCB"},
+    {"name": "Phụ cấp ăn trưa", "salary_component": "Phụ cấp ăn trưa", "type": "Earning", "salary_component_abbr": "PCAT"},
+    {"name": "Phụ cấp điện thoại", "salary_component": "Phụ cấp điện thoại", "type": "Earning", "salary_component_abbr": "PCDT"},
+    {"name": "Phụ cấp xăng xe", "salary_component": "Phụ cấp xăng xe", "type": "Earning", "salary_component_abbr": "PCXX"},
+    {"name": "Phụ cấp trách nhiệm", "salary_component": "Phụ cấp trách nhiệm", "type": "Earning", "salary_component_abbr": "PCTN"},
+    {"name": "Thưởng", "salary_component": "Thưởng", "type": "Earning", "salary_component_abbr": "TH"},
+    {"name": "BHXH (NLĐ 8%)", "salary_component": "BHXH (NLĐ 8%)", "type": "Deduction", "salary_component_abbr": "BHXH_NLD"},
+    {"name": "BHYT (NLĐ 1.5%)", "salary_component": "BHYT (NLĐ 1.5%)", "type": "Deduction", "salary_component_abbr": "BHYT_NLD"},
+    {"name": "BHTN (NLĐ 1%)", "salary_component": "BHTN (NLĐ 1%)", "type": "Deduction", "salary_component_abbr": "BHTN_NLD"},
+    {"name": "Thuế TNCN", "salary_component": "Thuế TNCN", "type": "Deduction", "salary_component_abbr": "TNCN"},
+    {"name": "BHXH (DN 17.5%)", "salary_component": "BHXH (DN 17.5%)", "type": "Earning", "salary_component_abbr": "BHXH_DN", "do_not_include_in_total": 1, "statistical_component": 1},
+    {"name": "BHYT (DN 3%)", "salary_component": "BHYT (DN 3%)", "type": "Earning", "salary_component_abbr": "BHYT_DN", "do_not_include_in_total": 1, "statistical_component": 1},
+    {"name": "BHTN (DN 1%)", "salary_component": "BHTN (DN 1%)", "type": "Earning", "salary_component_abbr": "BHTN_DN", "do_not_include_in_total": 1, "statistical_component": 1},
+    {"name": "KPCĐ (DN 2%)", "salary_component": "KPCĐ (DN 2%)", "type": "Earning", "salary_component_abbr": "KPCD_DN", "do_not_include_in_total": 1, "statistical_component": 1}
+]

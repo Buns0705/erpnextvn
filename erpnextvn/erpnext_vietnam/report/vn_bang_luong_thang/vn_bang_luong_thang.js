@@ -1,0 +1,46 @@
+frappe.query_reports["VN Bảng Lương Tháng"] = {
+    filters: [
+        {
+            fieldname: "company",
+            label: __("Công ty"),
+            fieldtype: "Link",
+            options: "Company",
+            default: frappe.defaults.get_user_default("Company"),
+            reqd: 1,
+        },
+        {
+            fieldname: "month",
+            label: __("Tháng"),
+            fieldtype: "Select",
+            options: [
+                { value: 1, label: __("Tháng 1") },
+                { value: 2, label: __("Tháng 2") },
+                { value: 3, label: __("Tháng 3") },
+                { value: 4, label: __("Tháng 4") },
+                { value: 5, label: __("Tháng 5") },
+                { value: 6, label: __("Tháng 6") },
+                { value: 7, label: __("Tháng 7") },
+                { value: 8, label: __("Tháng 8") },
+                { value: 9, label: __("Tháng 9") },
+                { value: 10, label: __("Tháng 10") },
+                { value: 11, label: __("Tháng 11") },
+                { value: 12, label: __("Tháng 12") },
+            ],
+            default: new Date().getMonth() + 1,
+            reqd: 1,
+        },
+        {
+            fieldname: "year",
+            label: __("Năm"),
+            fieldtype: "Int",
+            default: new Date().getFullYear(),
+            reqd: 1,
+        },
+        {
+            fieldname: "department",
+            label: __("Phòng ban"),
+            fieldtype: "Link",
+            options: "Department",
+        },
+    ],
+};

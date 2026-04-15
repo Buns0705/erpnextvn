@@ -1,0 +1,45 @@
+{
+    "actions": [],
+    "autoname": "naming_series:",
+    "creation": "2025-01-01 00:00:00",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "naming_series",
+        "employee",
+        "employee_name",
+        "tax_code",
+        "column_break_dep",
+        "number_of_dependents",
+        "insurance_salary",
+        "wage_region",
+        "section_dependents",
+        "dependents"
+    ],
+    "fields": [
+        {"fieldname": "naming_series", "fieldtype": "Select", "label": "Số seri", "options": "VN-ETI-.####", "default": "VN-ETI-.####"},
+        {"fieldname": "employee", "fieldtype": "Link", "label": "Nhân viên", "options": "Employee", "reqd": 1, "in_list_view": 1},
+        {"fieldname": "employee_name", "fieldtype": "Data", "label": "Tên nhân viên", "fetch_from": "employee.employee_name", "read_only": 1, "in_list_view": 1},
+        {"fieldname": "tax_code", "fieldtype": "Data", "label": "Mã số thuế cá nhân", "in_list_view": 1},
+        {"fieldname": "column_break_dep", "fieldtype": "Column Break"},
+        {"fieldname": "number_of_dependents", "fieldtype": "Int", "label": "Số người phụ thuộc", "default": "0"},
+        {"fieldname": "insurance_salary", "fieldtype": "Currency", "label": "Mức lương đóng BH"},
+        {"fieldname": "wage_region", "fieldtype": "Select", "label": "Vùng lương", "options": "I\nII\nIII\nIV"},
+        {"fieldname": "section_dependents", "fieldtype": "Section Break", "label": "Danh sách người phụ thuộc"},
+        {"fieldname": "dependents", "fieldtype": "Long Text", "label": "Chi tiết người phụ thuộc"}
+    ],
+    "links": [],
+    "modified": "2025-01-01 00:00:00",
+    "modified_by": "Administrator",
+    "module": "ERPNext Vietnam",
+    "name": "VN Employee Tax Info",
+    "owner": "Administrator",
+    "permissions": [
+        {"create": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "read": 1, "report": 1, "role": "System Manager", "share": 1, "write": 1},
+        {"create": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "read": 1, "report": 1, "role": "HR Manager", "share": 1, "write": 1},
+        {"read": 1, "role": "HR User"}
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+}

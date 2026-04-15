@@ -1,0 +1,20 @@
+{
+    "add_total_row": 1,
+    "creation": "2025-01-01 00:00:00",
+    "disabled": 0,
+    "doctype": "Report",
+    "is_standard": "Yes",
+    "modified": "2025-01-01 00:00:00",
+    "modified_by": "Administrator",
+    "module": "ERPNext Vietnam",
+    "name": "VN Cân Đối Phát Sinh",
+    "owner": "Administrator",
+    "ref_doctype": "GL Entry",
+    "report_name": "VN Cân Đối Phát Sinh",
+    "report_type": "Script Report",
+    "roles": [
+        {"role": "Accounts User"},
+        {"role": "Accounts Manager"},
+        {"role": "System Manager"}
+    ]
+}
