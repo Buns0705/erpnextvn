@@ -85,6 +85,9 @@ regional_overrides = {
         "erpnext.controllers.taxes_and_totals.get_regional_round_off_accounts": (
             "erpnextvn.accounting.tax_templates.get_round_off_accounts"
         ),
+        "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts.get_charts_for_country": (
+            "erpnextvn.accounting.chart_of_accounts.get_charts_for_country"
+        ),
     },
 }
 
