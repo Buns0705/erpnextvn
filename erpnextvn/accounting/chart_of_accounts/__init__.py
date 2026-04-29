@@ -1,12 +1,18 @@
 """Chart of Accounts for Vietnam — TT99, TT200, TT133.
 
-Overrides ERPNext's ``get_charts_for_country`` via
-``override_whitelisted_methods`` hook so that the Vietnamese charts
-appear in the "Chart Of Accounts Template" dropdown when creating a
-Company with country = Vietnam.
+Mechanism:
 
-Also monkey-patches ``get_chart`` at import time so ERPNext can load
-the account tree from our JSON files.
+1. ``override_whitelisted_methods`` redirects the RPC call
+   ``get_charts_for_country`` to ours so the dropdown is populated
+   when creating a Company with country = Vietnam.
+
+2. A monkey-patch on ERPNext's ``get_chart`` lets ``create_charts``
+   load our JSON files. Because ``create_charts`` imports
+   ``get_chart`` directly (not via RPC), we cannot use
+   ``override_whitelisted_methods`` for it. The patch is applied:
+
+   - Lazily when this module is first imported
+   - Eagerly via the ``boot_session`` hook
 """
 
 from __future__ import annotations
@@ -24,23 +30,26 @@ _CHARTS = {
     "Vietnam - Hệ thống tài khoản TT133/2016 (SME)": "vn_tt133.json",
 }
 
+_PATCHED = False
+
 
 @frappe.whitelist()
 def get_charts_for_country(country, with_standard=False):
     """Return chart names — includes both ERPNext standard + our VN charts.
 
-    This completely replaces ERPNext's ``get_charts_for_country`` via the
-    ``override_whitelisted_methods`` hook. It first calls the original
-    ERPNext logic (scanning its own ``verified/`` folder) then appends
-    our Vietnamese charts.
+    Replaces ERPNext's ``get_charts_for_country`` via the
+    ``override_whitelisted_methods`` hook.
     """
+    # Ensure get_chart is patched before anyone tries to load a chart
+    ensure_patched()
+
     from erpnext.accounts.doctype.account.chart_of_accounts import (
         chart_of_accounts as _orig_module,
     )
 
     charts = []
 
-    # --- Original ERPNext logic (scan verified/ folder) ---
+    # --- Original ERPNext logic (scan its own verified/ folder) ---
     def _get_chart_name(content):
         if content:
             content = json.loads(content)
@@ -80,7 +89,7 @@ def get_charts_for_country(country, with_standard=False):
 
 
 def _get_chart_vn(chart_template):
-    """If chart_template is one of ours, return the tree dict."""
+    """Return the tree dict if chart_template is one of ours, else None."""
     filename = _CHARTS.get(chart_template)
     if not filename:
         return None
@@ -90,12 +99,20 @@ def _get_chart_vn(chart_template):
     return data.get("tree")
 
 
-def _patch_get_chart():
-    """Monkey-patch ERPNext's ``get_chart`` so it can load our JSON files.
+def ensure_patched(bootinfo=None):
+    """Monkey-patch ERPNext's ``get_chart`` once per Python process.
 
-    Called once at module import time. Wraps the original ``get_chart``
-    to first check if the template is one of ours.
+    Called from:
+    - ``boot_session`` hook (every login / page load)
+    - ``get_charts_for_country`` (defensive)
+    - module import time
+
+    Idempotent — safe to call repeatedly.
     """
+    global _PATCHED
+    if _PATCHED:
+        return
+
     try:
         from erpnext.accounts.doctype.account.chart_of_accounts import (
             chart_of_accounts as _mod,
@@ -112,7 +129,8 @@ def _patch_get_chart():
         return _original_get_chart(chart_template, existing_company)
 
     _mod.get_chart = _patched_get_chart
+    _PATCHED = True
 
 
-# Apply patch on import
-_patch_get_chart()
+# Apply on import (lazy fallback)
+ensure_patched()

@@ -98,6 +98,9 @@ override_whitelisted_methods = {
     ),
 }
 
+# Apply CoA monkey-patch on every session boot so create_charts() sees it
+boot_session = "erpnextvn.accounting.chart_of_accounts.ensure_patched"
+
 # ---------------------------------------------------------------------------
 # Website / URL rules
 # ---------------------------------------------------------------------------
