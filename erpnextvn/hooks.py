@@ -98,7 +98,10 @@ override_whitelisted_methods = {
     ),
 }
 
-# Apply CoA monkey-patch on every session boot so create_charts() sees it
+# Apply CoA monkey-patch on every request and every session boot.
+# `before_request` runs in every worker process before the request handler,
+# guaranteeing the patch is applied before Company.on_update fires.
+before_request = ["erpnextvn.accounting.chart_of_accounts.ensure_patched"]
 boot_session = "erpnextvn.accounting.chart_of_accounts.ensure_patched"
 
 # ---------------------------------------------------------------------------
